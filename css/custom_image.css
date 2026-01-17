@@ -1,0 +1,30 @@
+/* Interactive Image Styles */
+.interactive-img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    /* Rounded circle */
+    border: 8px solid var(--card-bg);
+    box-shadow: var(--shadow);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy transition */
+    cursor: pointer;
+}
+
+.interactive-img:hover {
+    transform: scale(1.05) rotate(5deg);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px rgba(106, 27, 154, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Ensure Floating animation works with this if wanted, or override it */
+.hero-image {
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-image:hover {
+    animation-play-state: paused;
+    /* Pause float on hover for better interaction */
+}
