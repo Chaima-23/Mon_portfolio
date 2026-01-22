@@ -1,7 +1,3 @@
-/**
- * Main JavaScript File - Modernized (ES5 Compatible)
- * Contains: Theme Toggle, Typing Effect, Scroll Animations
- */
 
 // Global Variables
 var theme = 'light';
@@ -14,23 +10,17 @@ var typeDelay = 2000;
 var currentText = '';
 var isDeleting = false;
 
-// Initialize when window loads
 // Initialize immediately since script is at end of body
 initTheme();
 initTyping();
 initScrollReveal();
-// displayDate(); // Removed to avoid confusion with inline document.write in html which is already working.
 
 // Also add a listener for total safety if script is moved to head later
 window.addEventListener('load', function () {
-    // Re-run safely if needed or do other load-time tasks
-    // initTheme() checks if already added so it should be safe or we can just rely on immediate execution
+
 });
 
-/**
- * 1. Dark Mode / Theme Toggle
- * Injects a button into the navbar dynamically
- */
+
 function initTheme() {
     // Check if button already exists
     if (document.querySelector('.theme-btn')) return;
@@ -67,9 +57,7 @@ function toggleTheme() {
     }
 }
 
-/**
- * 2. Typing Effect for Hero Section
- */
+
 function initTyping() {
     var typeElement = document.getElementById('typing-text');
     if (typeElement) {
@@ -117,9 +105,6 @@ function typeWriter() {
     }, delta);
 }
 
-/**
- * 3. Scroll Reveal Animation
- */
 function initScrollReveal() {
     // Check initially
     revealOnScroll();
@@ -139,8 +124,7 @@ function revealOnScroll() {
         var elementVisible = 150; // Threshold
 
         if (elementTop < windowHeight - elementVisible) {
-            // Add class 'active' to trigger CSS transition
-            // Check if class already exists to avoid duplicates string manip
+ 
             if (reveals[i].className.indexOf('reveal') === -1) {
                 reveals[i].className += ' reveal active';
             } else if (reveals[i].className.indexOf('active') === -1) {
@@ -150,20 +134,8 @@ function revealOnScroll() {
     }
 }
 
-/**
- * Utilities
- */
+
 function displayDate() {
-    // Only works if a strict document.write location is awaited, 
-    // but document.write clears page if called after load.
-    // The previous implementation used document.write inline in HTML.
-    // That is fine. If we want to do it via JS here, we need an ID.
-    // For now, leaving the inline script in HTML files or ignoring strict document.write requirement for this specific function if it causes issues.
-    // Actually, document.write() after load wipes the page. 
-    // Fix: We should not call document.write in onload.
-    // The previous HTML files have <script>document.write(...)</script> INLINE. That renders during load.
-    // This existing function displayDate() inside window.onload is DANGEROUS.
-    // I will remove it or change it to innerHTML replacement.
 
     // Safe replacement:
     var dateElement = document.getElementById('year-span');
